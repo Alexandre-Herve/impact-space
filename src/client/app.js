@@ -1,6 +1,8 @@
 window.__CLIENT__ = true;
 window.__SERVER__ = false;
 
+import injectTapEventPlugin from "react-tap-event-plugin";
+
 import 'babel/polyfill';
 
 import React from 'react';

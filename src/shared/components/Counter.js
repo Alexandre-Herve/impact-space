@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Button from './Button';
 
 export default class Counter {
   static propTypes = {
@@ -14,13 +15,13 @@ export default class Counter {
       <p>
         Clicked: {counter} times
         {' '}
-        <button onClick={()=>increment()}>+</button>
+        <Button onClick={()=>increment()}>+</Button>
         {' '}
-        <button onClick={()=>decrement()}>-</button>
+        <Button onClick={()=>decrement()}>-</Button>
         {' '}
-        <button onClick={()=>incrementIfOdd(counter)}>
+        <Button onClick={()=>incrementIfOdd(counter)}>
           Increment if odd
-        </button>
+        </Button>
       </p>
     );
   }
