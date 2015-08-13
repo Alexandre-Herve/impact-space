@@ -8,7 +8,8 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3001',
     'webpack/hot/only-dev-server',
-    './src/client/app'
+    // TODO how to have this path as parameter (web/android) ?
+    './src/android/app'
   ],
   output: {
     path: path.join(__dirname, '/public/js/'),

@@ -1,5 +1,6 @@
 global.__CLIENT__ = false;
 global.__SERVER__ = true;
+global.__ANDROID__ = false;
 
 import 'babel/polyfill';
 import koa from 'koa';

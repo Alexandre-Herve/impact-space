@@ -5,7 +5,8 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: './src/client/app',
+  // TODO how to have this path as parameter (web/android) ?
+  entry: './src/android/app',
   output: {
     path: path.join(__dirname, '/public/js'),
     filename: 'app.min.js',

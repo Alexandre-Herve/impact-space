@@ -6,7 +6,8 @@
   "scripts": {
     "prestart": "make clean && make -j5 build",
     "start": "node --harmony lib/server",
-    "dev": "NODE_ENV=development make -j5 webpack-server dev-server watch"
+    "dev": "NODE_ENV=development make -j5 webpack-server dev-server watch",
+    "android": "make clean && make -j5 build && cp public/js/app.min.js android/www/js && cd android && cordova build && cordova run android --device"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/gaearon/redux#readme",
   "dependencies": {
     "babel-runtime": "^5.6.15",
+    "fetch-polyfill": "^0.8.1",
     "isomorphic-fetch": "^2.1.0",
     "koa": "^0.21.0",
     "koa-bodyparser": "^2.0.0",
