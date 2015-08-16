@@ -1,6 +1,6 @@
 import React from 'react';
 import nunjucks from 'nunjucks';
-import CounterApp from '../../shared/containers/CounterApp';
+import Home from '../../shared/containers/Home';
 import create from '../../shared/redux';
 import { Provider } from 'redux/react';
 import { loadCounter } from '../../shared/actions/counter';
@@ -16,7 +16,7 @@ export default function counter() {
 
     const appString = React.renderToString(
       <Provider redux={redux}>
-        {()=><CounterApp {...state} />}
+        {()=><Home {...state} />}
       </Provider>
     );
 

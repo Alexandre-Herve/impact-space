@@ -6,7 +6,7 @@ import 'babel/polyfill';
 
 import React from 'react';
 import { Provider } from 'redux/react';
-import CounterApp from '../shared/containers/CounterApp';
+import Home from '../shared/containers/Home';
 import create from '../shared/redux';
 import * as stores from '../shared/stores';
 
@@ -15,7 +15,7 @@ const redux = create(stores, state);
 
 React.render(
   <Provider redux={redux}>
-    {()=><CounterApp />}
+    {()=><Home />}
   </Provider>,
   document.getElementById('App')
 );
