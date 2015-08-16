@@ -4,26 +4,37 @@ global.__ANDROID__ = false;
 
 import 'babel/polyfill';
 import koa from 'koa';
+import serve from 'koa-static';
+import * as apis from './api';
+import * as routes from './routes';
+
+/**********/
+/* server */
+/**********/
 
 const app = koa();
 export default app;
 
-app.use(function *logger(next) {
-  var time = new Date();
-  yield next;
-
-  const ms = new Date() - time;
-  this.set('X-Response-Time', ms + 'ms');
-});
-
-import serve from 'koa-static';
 app.use(serve('public'));
 
-import api from './api';
-app.use(api());
+for (let [key, api] of entries(apis)) {
+  app.use(api());
+}
 
-import counter from './counter';
-app.use(counter());
+for (let [key, route] of entries(routes)) {
+  app.use(route());
+}
 
 app.listen(process.env.PORT || 3000);
 console.log('ready');
+
+
+
+/**********/
+/* helper */
+/**********/
+
+function entries(obj) {
+   return (for (key of Object.keys(obj)) [key, obj[key]]);
+}
+
