@@ -5,7 +5,7 @@
   "main": "lib/server",
   "scripts": {
     "prestart": "make clean && make -j5 build",
-    "start": "node --harmony lib/server",
+    "start": "node --harmony lib/server/index.js",
     "dev": "NODE_ENV=development make -j5 webpack-server dev-server watch",
     "android": "cp public/js/android.app.min.js android/www/js && cd android && cordova build && cordova run android --device"
   },
