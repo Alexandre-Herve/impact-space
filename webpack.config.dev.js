@@ -5,15 +5,21 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: [
-    'webpack-dev-server/client?http://localhost:3001',
-    'webpack/hot/only-dev-server',
-    // TODO how to have this path as parameter (web/android) ?
-    './src/android/app'
-  ],
+  entry: {
+    web: [
+      'webpack-dev-server/client?http://localhost:3001',
+      'webpack/hot/only-dev-server',
+      './src/client/app'
+    ],
+    android: [
+      'webpack-dev-server/client?http://localhost:3001',
+      'webpack/hot/only-dev-server',
+      './src/android/app'
+    ]
+  },
   output: {
     path: path.join(__dirname, '/public/js/'),
-    filename: 'app.js',
+    filename: '[name].app.js',
     publicPath: 'http://localhost:3001/js/'
   },
   plugins: [

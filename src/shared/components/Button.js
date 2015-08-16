@@ -20,7 +20,7 @@ export default class Counter {
 
   render() {
     return (
-        <RaisedButton { ...this.props } />
+        <RaisedButton { ...this.props  }/>
     );
   }
 }

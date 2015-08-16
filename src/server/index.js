@@ -8,6 +8,14 @@ import koa from 'koa';
 const app = koa();
 export default app;
 
+app.use(function *logger(next) {
+  var time = new Date();
+  yield next;
+
+  const ms = new Date() - time;
+  this.set('X-Response-Time', ms + 'ms');
+});
+
 import serve from 'koa-static';
 app.use(serve('public'));
 

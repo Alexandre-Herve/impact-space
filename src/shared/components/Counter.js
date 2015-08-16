@@ -19,7 +19,7 @@ export default class Counter {
         {' '}
         <Button onClick={()=>decrement()}>-</Button>
         {' '}
-        <Button onClick={()=>incrementIfOdd(counter)}>
+        <Button onClick={()=>incrementIfOdd(counter)} secondary={ true }>
           Increment if odd
         </Button>
       </p>

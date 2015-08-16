@@ -11,10 +11,10 @@ webpack-server: $(LIB_JS); node --harmony ./lib/server/webpack
 watch:; $(BIN)/babel src -d lib -e 0 -s inline -w
 
 build: js webpack
-webpack: public/js/app.js
+webpack: public/js/web.app.js
 clean:; rm -rf public lib
 
-public/js/app.js: $(SRC_JS); $(BIN)/webpack
+public/js/web.app.js: $(SRC_JS); $(BIN)/webpack
 js: $(LIB_JS)
 $(LIB_JS): lib/%.js: src/%.js
 	mkdir -p $(dir $@)
