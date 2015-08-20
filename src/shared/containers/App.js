@@ -5,11 +5,9 @@ import { Router } from 'react-router';
 import { Route }   from 'react-router';
 import { reduxRouteComponent } from 'redux-react-router';
 
-import redux from '../redux';
-import stores from '../stores';
+import reducers from '../reducers';
 import routes from '../routes';
-
-console.log('App');
+import store from '../stores';
 
 export default class ClientApp extends React.Component {
   static propTypes = {
@@ -21,7 +19,7 @@ export default class ClientApp extends React.Component {
     super();
   }
 
-  renderRouter (store) {
+  renderRouter () {
     const RouteComponent = reduxRouteComponent(store);
 
     return (
@@ -34,15 +32,10 @@ export default class ClientApp extends React.Component {
   }
 
   render () {
-    const store = redux(stores, this.props.initialState);
-    console.log('store', store);
-
     return (
-      <div>
-        <Provider store={store}>
-          {() => this.renderRouter(store)}
-        </Provider>
-      </div>
+      <Provider store={store}>
+        {() => this.renderRouter()}
+      </Provider>
     );
   }
 }

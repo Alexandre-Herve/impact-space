@@ -21,6 +21,10 @@ for (let [key, api] of entries(apis)) {
   app.use(api());
 }
 
+app.use(function* log(next) {
+  yield next;
+});
+
 for (let [key, route] of entries(routes)) {
   app.use(route());
 }

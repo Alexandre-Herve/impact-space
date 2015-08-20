@@ -1,26 +1,23 @@
 import React from 'react';
 import nunjucks from 'nunjucks';
 import App from '../../shared/containers/App';
-import create from '../../shared/redux';
 import { Provider } from 'react-redux';
 import { loadCounter } from '../../shared/actions/counter';
-import * as stores from '../../shared/stores';
+import store from '../../shared/stores';
+import Location from 'react-router';
 
 nunjucks.configure('views', { autoescape: true });
 
 export default function counter() {
   return function* () {
-    const redux = create(stores);
-    yield redux.dispatch(loadCounter());
-    var state = redux.getState();
+    var state = store.getState();
 
-    const appString = React.renderToString(
-      <App />
-    );
+    /*const appString = React.renderToString(<App location={location}/>);*/
+    const appString = 'lol';
 
     this.body = nunjucks.render('index.html', {
       appString,
-      initialState:JSON.stringify(state),
+      initialState: JSON.stringify(state),
       env:process.env
     });
   };

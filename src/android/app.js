@@ -9,12 +9,8 @@ import 'fetch-polyfill';
 
 import React from 'react';
 import App from '../shared/containers/App';
+import stores from '../shared/stores';
+import { history } from 'react-router/lib/BrowserHistory';
 
 const state = window.__initialState;
-const redux = create(stores, state);
-
-React.render(
-  <App {...state} />,
-  document.getElementById('App')
-);
-
+React.render(<App history={history} state={state} />, document.getElementById('App'));
