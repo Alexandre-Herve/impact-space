@@ -1,8 +1,8 @@
 import React from 'react';
 import nunjucks from 'nunjucks';
-import Home from '../../shared/containers/Home';
+import App from '../../shared/containers/App';
 import create from '../../shared/redux';
-import { Provider } from 'redux/react';
+import { Provider } from 'react-redux';
 import { loadCounter } from '../../shared/actions/counter';
 import * as stores from '../../shared/stores';
 
@@ -15,9 +15,7 @@ export default function counter() {
     var state = redux.getState();
 
     const appString = React.renderToString(
-      <Provider redux={redux}>
-        {()=><Home {...state} />}
-      </Provider>
+      <App />
     );
 
     this.body = nunjucks.render('index.html', {

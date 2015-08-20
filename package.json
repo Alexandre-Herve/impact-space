@@ -55,5 +55,8 @@
     "watch": "^0.16.0",
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0"
+  },
+  "devDependencies": {
+    "redux-react-router": "^0.2.1"
   }
 }

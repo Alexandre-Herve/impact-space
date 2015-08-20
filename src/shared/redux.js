@@ -1,9 +1,9 @@
-import { createRedux, createDispatcher, composeStores } from 'redux';
+import { createStore, combineReducers, compose } from 'redux';
 
 export default function create(stores, initialState) {
-  const store = composeStores(stores);
-  const dispatcher = createDispatcher(store, () => [middleware()]);
-  return createRedux(dispatcher, initialState);
+  const store = compose(stores);
+  const dispatcher = combineReducers(store, () => [middleware()]);
+  return createStore(dispatcher, initialState);
 }
 
 // promise middleware

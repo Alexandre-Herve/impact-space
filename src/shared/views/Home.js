@@ -1,6 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { connect } from 'redux/react';
+import { connect } from 'react-redux';
 import Counter from '../components/Counter';
 import LeftNav from '../components/LeftNav';
 import Header from '../components/Header';

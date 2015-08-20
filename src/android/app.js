@@ -8,18 +8,13 @@ import 'babel/polyfill';
 import 'fetch-polyfill';
 
 import React from 'react';
-import { Provider } from 'redux/react';
-import Home from '../shared/containers/Home';
-import create from '../shared/redux';
-import * as stores from '../shared/stores';
+import App from '../shared/containers/App';
 
 const state = window.__initialState;
 const redux = create(stores, state);
 
 React.render(
-  <Provider redux={redux}>
-    {()=><Home />}
-  </Provider>,
+  <App {...state} />,
   document.getElementById('App')
 );
 
